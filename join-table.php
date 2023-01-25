@@ -1,62 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
- <title>Join Table></title>
-</head>
-<body>
- 
-<table border="1">
-   <tr>
-    <td>No.</td>
-    <td>Nama</td>
-    <td>Kelas</td>
-    <td>Jurusan</td>
-    <td>Tahun</td>
-    <td>Nominal</td>
-   </tr>
-
-   <?php
-   include 'koneksi.php';
-
-   $query = mysqli_query($koneksi, "SELECT * FROM tb_siswa INNER JOIN tb_jurusan ON tb_siswa.id_jurusan = 
-   tb_jurusan.id_jurusan INNER JOIN tb_spp ON tb_siswa.id_spp = tb_spp.id_spp");
-
-     $no = 1;
-     foreach ($query as $row) :
-      ?>
-
-      <tr>
-        <td><?= $no++; ?></td>
-        <td><?= $row['nama']; ?></td>
-        </td>
-        <td><?= $row['kelas']; ?>
-        </td>
-        <td><?= $row['nama_jurusan']; ?></td>
-        <td><?= $row['tahun']; ?>
-        </td>
-        <td><?= $row['nominal']; ?>
-        </td>
-      </tr>
-
-     <?php endforeach; ?>
-
-    </table>
-   </body>
-   </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <head>
+        <title>JOIN TABLE</title>
+    </head>
+    <body>
+    <table border="1">
+        <tr>
+            <td bgcolor="pink">NO.</td>
+            <td  bgcolor="purple">Nama</td>
+            <td  bgcolor="green">Kelas</td>
+            <td  bgcolor="rainbow">Jurusan</td>
+            <td  bgcolor="orange">Tahun</td>
+            <td  bgcolor="red">Nominal</td>
+            <td  bgcolor="blue">mengubah</td>
+        </tr> 
+        
+        <?php
+        include("koneksi.php");
+        $query = mysqli_query($koneksi, "SELECT * FROM tb_siswa INNER JOIN
+     tb_jurusan ON tb_siswa.id_jurusan = tb_jurusan.id_jurusan INNER JOIN tb_spp ON tb_siswa.id_spp1 = tb_spp.id_spp1");
+        
+        while($siswa=mysqli_fetch_array($query)){
+            echo "<tr>";
+                       echo "<td>".$siswa['id_siswa']."</td>";
+                       echo "<td>".$siswa['nama']."</td>";
+                       echo "<td>".$siswa['kelas']."</td>";
+                       echo "<td>".$siswa['nama_jurusan']."</td>";
+                       echo "<td>".$siswa['nominal']."</td>";
+                       echo "<td>".$siswa['tahun']."</td>";
+                       echo "<td>";
+                       echo "<a href='edit.php?id=".$siswa['id_siswa']."'>Edit</a> |";
+                       echo "<a href='hapus.php?id=".$siswa['id_siswa']."'>hapus</a>";
+                       echo "</td>";
+            echo "</tr>";
+           }
+        ?>
+  <a href="tambah.php"><input type="button"  name="Tambah"   value="tambah">
+  </table>
+</body>
+</html>

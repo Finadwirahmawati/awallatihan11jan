@@ -2,9 +2,8 @@
 <head>
 </head>
 <body>
-    <center>
     <h1>Daftar Siswa</h1>
-    <form action="proses_tambah.php"method="POST">
+    <form action="proses_tambah.php" method="POST">
         <fieldset>
             <p>
                 <label for="nama">Nama :</label>
@@ -13,36 +12,26 @@
 
             <p>
                 <label for="kelas">Kelas :</label>
-                <input type="text" name="nama" />
+                <input type="text" name="kelas" />
             </p>
             <p>
-                <label for="jumlah">Jumlah :</label>
-                <select nama="jurusan">
-                <option value="RPL">RPL </option>
-                    <option value="TSM">TSM </option>
-                    <option value="TB">TB </option>
-                    <option value="TL">TL </option>
-                    <option value="TBG">TBG </option>
+                <label for="nama_jurusan">Jurusan :</label>
+                <input type="text" name="nama_jurusan" /> 
 </select></br>
             </p>
             <p>
                 <label for="tahun">Tahun :</label>
-                <input type="text" name="tahun" />
+                <input type="number" name="tahun" />
             </p>
             <p>
-                <label for="nominanal">Nominal :</label>
-                <input type="text" name="nominal" />
+                <label for="nominal">Nominal :</label>
+                <input type="number" name="nominal" />
             </p>
             <p>
-                 <input type="submit" value="kirim" name="kirim_bayar" />
+                <input type="submit" value="kirim" name="kirim_bayar" />
             </p>
         </fieldset>
 </form>
 </center>
 </body>
 </html>
-
-
-
-
-
